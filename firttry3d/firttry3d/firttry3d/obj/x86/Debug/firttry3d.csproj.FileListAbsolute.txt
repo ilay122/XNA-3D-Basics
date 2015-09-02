@@ -1,0 +1,7 @@
+c:\users\user\documents\visual studio 2013\Projects\firttry3d\firttry3d\firttry3d\bin\x86\Debug\firttry3d.exe
+c:\users\user\documents\visual studio 2013\Projects\firttry3d\firttry3d\firttry3d\bin\x86\Debug\firttry3d.pdb
+c:\users\user\documents\visual studio 2013\Projects\firttry3d\firttry3d\firttry3d\obj\x86\Debug\Microsoft.Xna.Framework.RuntimeProfile.txt
+c:\users\user\documents\visual studio 2013\Projects\firttry3d\firttry3d\firttry3d\obj\x86\Debug\firttry3d.exe
+c:\users\user\documents\visual studio 2013\Projects\firttry3d\firttry3d\firttry3d\obj\x86\Debug\firttry3d.pdb
+c:\users\user\documents\visual studio 2013\Projects\firttry3d\firttry3d\firttry3d\bin\x86\Debug\Content\Models\cube.xnb
+C:\Users\user\documents\visual studio 2013\Projects\firttry3d\firttry3d\firttry3d\bin\x86\Debug\Content\Models\player.xnb
