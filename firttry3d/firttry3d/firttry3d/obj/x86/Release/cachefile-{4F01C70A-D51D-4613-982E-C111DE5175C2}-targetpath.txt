@@ -1,2 +1,5 @@
 Content\Models\cube.xnb
+Content\Models\bullet.xnb
+Content\Textures\fuck.xnb
+Content\Models\floor.xnb
 Content\maps\level1.txt

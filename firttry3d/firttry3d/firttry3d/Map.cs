@@ -16,6 +16,8 @@ namespace firttry3d
     public class Map
     {
         private List<Sprite3D> Blocks;
+        private List<Image3D> images;
+
         private List<string> map;
         private int level;
         private ContentManager content;
@@ -24,13 +26,17 @@ namespace firttry3d
         public Map(ContentManager content,FirstPersonCamera cam)
         {
             Blocks = new List<Sprite3D>();
+            images = new List<Image3D>();
             map = new List<string>();
+
             this.content = content;
             this.cam = cam;
+            
         }
         public void setLevel(int level)
         {
             Blocks.Clear();
+            images.Clear();
             map.Clear();
             
             this.level = level;
@@ -55,14 +61,25 @@ namespace firttry3d
                         case 'W':
                             {
                                 Blocks.Add(new Sprite3D(cube, new Vector3(i * Consts.WORLDSCALE * 2, 0, j * Consts.WORLDSCALE*2)));
+                                
                                 break;
                             }
                         case 's':
                             {
                                 if (sseen) continue;
+
                                 playerstartpos = new Vector3(i * Consts.WORLDSCALE * 2, 0, j * Consts.WORLDSCALE*2);
+                                Blocks.Add(new Sprite3D(cube, new Vector3(i * Consts.WORLDSCALE * 2, Consts.WORLDSCALE * 2, j * Consts.WORLDSCALE * 2)));
                                 cam.setPosition(playerstartpos);
+                                images.Add(new Image3D(content.Load<Texture2D>("Textures/fuck"),playerstartpos,false));
+
                                 sseen = true;
+                                break;
+                            }
+                        case ' ':
+                            {
+                                Blocks.Add(new Sprite3D(cube, new Vector3(i * Consts.WORLDSCALE * 2, Consts.WORLDSCALE * 2, j * Consts.WORLDSCALE * 2)));
+                                
                                 break;
                             }
                         default:
@@ -82,6 +99,10 @@ namespace firttry3d
             foreach (Sprite3D block in Blocks)
             {
                 block.draw(cam);
+            }
+            foreach (Image3D img in images)
+            {
+                img.draw(cam);
             }
         }
 
@@ -125,6 +146,7 @@ namespace firttry3d
                 }
 
             }
+            
             return false;
         }
         public void restart()

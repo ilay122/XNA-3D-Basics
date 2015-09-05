@@ -1,0 +1,35 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<XnaContent xmlns:Graphics="Microsoft.Xna.Framework.Content.Pipeline.Graphics" xmlns:Framework="Microsoft.Xna.Framework">
+  <Asset Type="Graphics:NodeContent">
+    <Name>Root</Name>
+    <Identity>
+      <SourceFilename>C:\Users\user\documents\visual studio 2013\Projects\firttry3d\firttry3d\firttry3dContent\Models\floor.x</SourceFilename>
+      <SourceTool>XImporter</SourceTool>
+    </Identity>
+    <Transform>1 0 0 0 0 0 -1 0 0 -1 0 0 0 0 0 1</Transform>
+    <Children>
+      <Child>
+        <Name>Plane</Name>
+        <Transform>1 0 0 0 0 1 0 0 0 0 1 0 0 0 0 1</Transform>
+        <Children>
+          <Child Type="Graphics:MeshContent">
+            <Name></Name>
+            <Transform>1 0 0 0 0 1 0 0 0 0 1 0 0 0 0 1</Transform>
+            <Positions>-1 -1 0 1 -1 0 -1 1 0 1 1 0</Positions>
+            <Geometry>
+              <Batch>
+                <Indices>0 1 2 0 2 3</Indices>
+                <Vertices>
+                  <PositionIndices>2 3 1 0</PositionIndices>
+                  <Channels>
+                    <VertexChannel Name="Normal0" ElementType="Framework:Vector3">0 0 -1 0 0 -1 0 0 -1 0 0 -1</VertexChannel>
+                  </Channels>
+                </Vertices>
+              </Batch>
+            </Geometry>
+          </Child>
+        </Children>
+      </Child>
+    </Children>
+  </Asset>
+</XnaContent>

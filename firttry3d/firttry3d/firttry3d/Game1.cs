@@ -18,6 +18,7 @@ namespace firttry3d
     {
         public static GraphicsDeviceManager graphics;
         public static SpriteBatch spriteBatch;
+        public static BasicEffect basiceffect;
         private GameStateManager gsm;
         public Game1()
         {
@@ -51,6 +52,8 @@ namespace firttry3d
         {
             // Create a new SpriteBatch, which can be used to draw textures.
             spriteBatch = new SpriteBatch(GraphicsDevice);
+            basiceffect = new BasicEffect(GraphicsDevice);
+
             gsm = new GameStateManager(this.Content);
             
             gsm.loadContent();

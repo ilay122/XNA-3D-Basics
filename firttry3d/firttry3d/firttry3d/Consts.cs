@@ -11,7 +11,10 @@ namespace firttry3d
         public const int HEIGHT = 600;
         public const string TITLE = "first 3d thing";
 
-        public const int WORLDSCALE = 10;
+        public const int WORLDSCALE = 100;
         public const int PLAYSTATE = 0;
+
+        public const float BULLETSPEED = WORLDSCALE/15f;
+        
     }
 }

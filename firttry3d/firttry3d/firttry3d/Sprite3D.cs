@@ -18,6 +18,7 @@ namespace firttry3d
         private float scale;
 
         private Quaternion rotation;
+        private BoundingBox bounding;
 
         public Sprite3D(Model model)
         {
@@ -25,6 +26,7 @@ namespace firttry3d
 
             this.scale = Consts.WORLDSCALE;
             rotation = new Quaternion();
+            updateBoundings();
 
         }
         public Sprite3D(Model model, Vector3 pos)
@@ -34,6 +36,7 @@ namespace firttry3d
 
             this.scale = Consts.WORLDSCALE;
             rotation = new Quaternion();
+            updateBoundings();
         }
         public float getScale()
         {
@@ -42,6 +45,7 @@ namespace firttry3d
         public void setScale(float scale)
         {
             this.scale = scale;
+            updateBoundings();
         }
         public Vector3 getPosition()
         {
@@ -50,6 +54,7 @@ namespace firttry3d
         public void setPosition(Vector3 position)
         {
             this.position = position;
+            updateBoundings();
         }
         public Quaternion getRotation()
         {
@@ -58,10 +63,12 @@ namespace firttry3d
         public void setRotation(Quaternion rotation)
         {
             this.rotation = rotation;
+            updateBoundings();
         }
         public void move(Vector3 mov)
         {
             position += mov;
+            updateBoundings();
         }
         public void draw(FirstPersonCamera cam)
         {
@@ -87,9 +94,10 @@ namespace firttry3d
         }
         public bool intersects(Sprite3D spr)
         {
-            return getBoundings().Intersects(spr.getBoundings());
+            return getBoundings().Contains(spr.getBoundings()) != ContainmentType.Disjoint;
         }
-        public BoundingBox getBoundings()
+        
+        public void updateBoundings()
         {
             Vector3 min = new Vector3(float.MaxValue, float.MaxValue, float.MaxValue);
             Vector3 max = new Vector3(float.MinValue, float.MinValue, float.MinValue);
@@ -119,8 +127,14 @@ namespace firttry3d
             }
 
             // Create and return bounding box
-            return new BoundingBox(min, max);
+            this.bounding= new BoundingBox(min, max);
         }
+
+        public BoundingBox getBoundings()
+        {
+            return bounding;
+        }
+
         public Matrix getWorld()
         {
             return Matrix.CreateScale(scale) * Matrix.CreateFromQuaternion(rotation) * Matrix.CreateTranslation(position);

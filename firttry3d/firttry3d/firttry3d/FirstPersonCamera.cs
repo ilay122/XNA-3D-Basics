@@ -182,5 +182,9 @@ namespace firttry3d
         {
             setPosition(lastpos);
         }
+        public Vector3 getLookAt()
+        {
+            return lookat;
+        }
     }
 }

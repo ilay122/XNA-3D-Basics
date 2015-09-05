@@ -6,3 +6,6 @@ C:\Users\user\documents\visual studio 2013\Projects\firttry3d\firttry3d\firttry3
 C:\Users\user\documents\visual studio 2013\Projects\firttry3d\firttry3d\firttry3d\obj\x86\Release\firttry3d.pdb
 C:\Users\user\documents\visual studio 2013\Projects\firttry3d\firttry3d\firttry3d\obj\x86\Release\firttry3d.csprojResolveAssemblyReference.cache
 C:\Users\user\documents\visual studio 2013\Projects\firttry3d\firttry3d\firttry3d\bin\x86\Release\Content\maps\level1.txt
+C:\Users\user\documents\visual studio 2013\Projects\firttry3d\firttry3d\firttry3d\bin\x86\Release\Content\Models\bullet.xnb
+C:\Users\user\documents\visual studio 2013\Projects\firttry3d\firttry3d\firttry3d\bin\x86\Release\Content\Textures\fuck.xnb
+C:\Users\user\documents\visual studio 2013\Projects\firttry3d\firttry3d\firttry3d\bin\x86\Release\Content\Models\floor.xnb

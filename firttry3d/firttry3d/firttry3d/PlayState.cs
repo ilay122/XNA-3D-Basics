@@ -17,29 +17,39 @@ namespace firttry3d
         private KeyboardState keyb;
         private FirstPersonCamera cam;
 
+        private Player player;
         private Map map;
+
+        private Image3D img;
         
         public PlayState(GameStateManager gsm, ContentManager content)
             : base(gsm, content)
         {
             keyb = Keyboard.GetState();
-            cam = new FirstPersonCamera(Vector3.Zero, Vector3.Zero, Consts.WORLDSCALE/15f, 0.001f);
-            map = new Map(content,cam);
-            cam.setMap(map);
 
+            cam = new FirstPersonCamera(Vector3.Zero, Vector3.Zero, Consts.WORLDSCALE/15f, 0.001f);
+
+            map = new Map(content,cam);
             map.setLevel(1);
 
+            cam.setMap(map);
+
+            player = new Player(content, map,cam);
+            
+            
 
         }
         
         public override void update(GameTime gametime)
         {
             keyb = Keyboard.GetState();
-            cam.update();
+
+            player.update();
 
         }
         public override void draw()
         {
+            player.draw();
             map.draw();
         }     
        
