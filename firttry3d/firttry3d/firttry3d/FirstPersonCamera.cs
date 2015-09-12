@@ -101,9 +101,9 @@ namespace firttry3d
             movment = Vector3.Transform(movment, rotat);
 
             return position + new Vector3(
-            map.collidesWithMap(position + new Vector3(movment.X, 0, 0), new Vector3(Consts.WORLDSCALE, Consts.WORLDSCALE, Consts.WORLDSCALE)) ? 0 : movment.X,
-            map.collidesWithMap(position + new Vector3(0, movment.Y, 0), new Vector3(Consts.WORLDSCALE, Consts.WORLDSCALE, Consts.WORLDSCALE)) ? 0 : movment.Y,
-            map.collidesWithMap(position + new Vector3(0, 0, movment.Z), new Vector3(Consts.WORLDSCALE, Consts.WORLDSCALE, Consts.WORLDSCALE)) ? 0 : movment.Z);
+            map.collidesWithMap(position + new Vector3(movment.X, 0, 0), new Vector3(Consts.WORLDSCALE / 1.05f, Consts.WORLDSCALE / 1.05f, Consts.WORLDSCALE / 1.05f)) ? 0 : movment.X,
+            map.collidesWithMap(position + new Vector3(0, movment.Y, 0), new Vector3(Consts.WORLDSCALE / 1.05f, Consts.WORLDSCALE / 1.05f, Consts.WORLDSCALE / 1.05f)) ? 0 : movment.Y,
+            map.collidesWithMap(position + new Vector3(0, 0, movment.Z), new Vector3(Consts.WORLDSCALE / 1.05f, Consts.WORLDSCALE / 1.05f, Consts.WORLDSCALE / 1.05f)) ? 0 : movment.Z);
 
 
         }

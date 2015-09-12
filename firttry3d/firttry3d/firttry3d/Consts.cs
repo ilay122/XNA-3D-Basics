@@ -14,7 +14,7 @@ namespace firttry3d
         public const int WORLDSCALE = 100;
         public const int PLAYSTATE = 0;
 
-        public const float BULLETSPEED = WORLDSCALE/15f;
+        public const float BULLETSPEED = WORLDSCALE/10f;
         
     }
 }

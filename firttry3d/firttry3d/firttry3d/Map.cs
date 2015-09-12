@@ -71,15 +71,18 @@ namespace firttry3d
                                 playerstartpos = new Vector3(i * Consts.WORLDSCALE * 2, 0, j * Consts.WORLDSCALE*2);
                                 Blocks.Add(new Sprite3D(cube, new Vector3(i * Consts.WORLDSCALE * 2, Consts.WORLDSCALE * 2, j * Consts.WORLDSCALE * 2)));
                                 cam.setPosition(playerstartpos);
-                                images.Add(new Image3D(content.Load<Texture2D>("Textures/fuck"),playerstartpos,false));
-
                                 sseen = true;
+
+                                images.Add(new Image3D(content.Load<Texture2D>("Textures/fuck"), new Vector3(i * Consts.WORLDSCALE * 2, 0, j * Consts.WORLDSCALE * 2), true));
+                                images[images.Count - 1].move(new Vector3(0, -Consts.WORLDSCALE, 0));
+
                                 break;
                             }
                         case ' ':
                             {
                                 Blocks.Add(new Sprite3D(cube, new Vector3(i * Consts.WORLDSCALE * 2, Consts.WORLDSCALE * 2, j * Consts.WORLDSCALE * 2)));
-                                
+                                images.Add(new Image3D(content.Load<Texture2D>("Textures/fuck"), new Vector3(i * Consts.WORLDSCALE * 2, 0, j * Consts.WORLDSCALE * 2), true));
+                                images[images.Count - 1].move(new Vector3(0, -Consts.WORLDSCALE, 0));
                                 break;
                             }
                         default:
@@ -133,6 +136,13 @@ namespace firttry3d
                 
                  
             }
+            foreach (Image3D img in images)
+            {
+                if (img.getBoundingBox().Contains(cameraBox) != ContainmentType.Disjoint)
+                {
+                    return true;
+                }
+            }
 
             return false;
         }
@@ -146,7 +156,13 @@ namespace firttry3d
                 }
 
             }
-            
+            foreach (Image3D img in images)
+            {
+                if (img.getBoundingBox().Contains(spr.getBoundings()) != ContainmentType.Disjoint)
+                {
+                    return true;
+                }
+            }
             return false;
         }
         public void restart()

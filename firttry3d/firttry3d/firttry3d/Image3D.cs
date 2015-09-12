@@ -59,10 +59,18 @@ namespace firttry3d
         public void setPosition(Vector3 pos)
         {
             this.position = pos;
+            updateBoundingBox();
         }
         public void move(Vector3 mov)
         {
             this.position += mov;
+            updateBoundingBox();
+        }
+        public void setIsLeftWall(bool left)
+        {
+            this.leftWall = left;
+            setIsFloor(false);
+            updateBoundingBox();
         }
         public void setScale(float scale)
         {
@@ -130,21 +138,51 @@ namespace firttry3d
         {
             BoundingBox box;
             if(isFloor){
-            box = new BoundingBox(
-                new Vector3(
-                    position.X - (texture.Width / 2),
-                    position.Y - (texture.Height / 2),
-                    position.Z - (Consts.WORLDSCALE / 2)
-                ),
-                new Vector3(
-                    position.X + (texture.Width / 2),
-                    position.Y + (texture.Height / 2),
-                    position.Z + (Consts.WORLDSCALE / 2)
-                 )
-             );
+                box = new BoundingBox(
+            new Vector3(
+                position.X - (scale),
+                position.Y - (scale / 100),
+                position.Z - (scale)
+            ),
+            new Vector3(
+                position.X + (scale),
+                position.Y + (scale / 100),
+                position.Z + (scale)
+            )
+        );
             }
             else{
-                box =new BoundingBox();
+                if (leftWall)
+                {
+                    box = new BoundingBox(
+            new Vector3(
+                position.X - (scale / 100),
+                position.Y - (scale),
+                position.Z - (scale)
+            ),
+            new Vector3(
+                position.X + (scale / 100),
+                position.Y + (scale),
+                position.Z + (scale)
+            )
+        );
+                    
+                }
+                else
+                {
+                    box = new BoundingBox(
+            new Vector3(
+                position.X - (scale),
+                position.Y - (scale),
+                position.Z - (scale / 100)
+            ),
+            new Vector3(
+                position.X + (scale),
+                position.Y + (scale),
+                position.Z + (scale / 100)
+            )
+        );
+                }
             }
             this.bounding = box;
 
